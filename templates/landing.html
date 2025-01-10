@@ -1,20 +1,23 @@
-{% extends "layout.html" %}
 {% load static %}
-<!-- Page title  -->
-{% block title %}Home{% endblock title %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+      <!-- Link to Normalize.css -->  
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'banner.css' %}">
+</head>
 
-<!-- Specific Page CSS goes HERE  -->
-
-
-<!-- Page content  -->
-{% block content %}
-<main class="home">
-
-  <div class="order-button-bg bg-dark fixed-bottom" id="fixedbottom"  style="display:none">
-    <button type="submit" class="order-button">Proceed to cart</button>
-</div>
-
-  <section class="hero-section bg-dark">
+<body>
+  <section class="banner bg-dark">
      <div class="container">
        <div class="row align-items-center">
            <div class="col-lg-6">
@@ -24,158 +27,17 @@
                
                <div class="search-box">
                    {% comment %} <p>What will you like to print today?</p> {% endcomment %}
-                   <input type="text" class="form-control form-control-lg" id="myInput" onkeyup="myFunction()"
+                   <input type="text" class="form-control form-control-lg" id="myInput"
                    placeholder="Search for Label Printing, Pack/Box Printing, etc">
                </div>
            </div>
            <div class="col-lg-6">
-               <img src="{% static 'images/Card3_n9kqin.png' %}" alt="Printing Services" class="img-fluid rounded">
+               <img src="{% static 'images/Card3_n9kqin.png' %}" alt="" class="img-fluid rounded">
            </div> 
        </div>
    </div>
  
- </section>
+  </section>
 
- <section class="popular-products py-5 bg-light">
-   <div class="container">
-     <div class="other">
-       <h2 class="section-title mb-4">Popular Products</h2> 
-       {% comment %} <a class="pro" href="all/">See All Products</a> {% endcomment %}
-     </div>
-
-     <div class="row g-4" id="gparent">
-       {% comment %} {% for product in popular_designs %}
-       <div class="col-md-3 parent" id="parent">
-         <div class="card product-card" id="sub_parent">
-           <img src="{{ product.image_url.url }}" class="card-img-top" alt="design_image">
-           <div class="card-body" id="parent-desc">
-             <h5 class="card-title" id="product-h5">{{product.kind}}</h5>
-             <p class="card-text" id="product-p">STARTING AT</p>
-             <p>{{product.price}} <span>per 100</span></p>
-             <a href="{% url 'app:customize' product.id %}" class="btns" id="product-a">Proceed to customize</a>
-           </div>
-         </div>
-       </div>
-       {% endfor %} {% endcomment %}
-     </div>
-   </div>
- </section>
-
-
-
-{% comment %} <!-- Popular  Categories-->
-<section class="popular-categories py-5 bg-light">
-   <div class="container">
-     <div class="other">
-     <h2 class="section-title mb-4">Popular Categories</h2> 
-     <a class="pro" href="{% url 'app:all_product' %}">See All Products</a> 
-     </div>
-     <div class="row g-4">
-      {% for product in popular_categories %}
-      <div class="col-md-3">
-        <div class="card product-card">
-          <img src="{{ product.image_url.url }}" class="card-img-top" alt="design_image">
-          <div class="card-body">
-            <h5 class="card-title">{{product.product_name}}</h5>
-            <p class="card-text">STARTING AT</p>
-            <p>{{product.price}} <span>per 100</span></p>
-            <a href="{% url 'app:single_product' product.id %}" class="btns">customize this design</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-
-     </div>
-   </div>
- </section> {% endcomment %}
-
-<section class="trust">
- {% comment %} 👑 {% endcomment %}
- <div class="container">
-   <h1>China in Nigeria Printing</h1>
-   <p>Our print services and solutions are trusted by these brands and over 15,000 other businesses in Nigeria.</p>
-   
- </div>
-</section>
-
-<div class="testimonial-section ">
- <h2>What Customers Say About Us 🙌</h2>
- <div class="container">
-     <div class="row">
-         <!-- Testimonial 1 -->
-         <div class="col-md-4">
-             <div class="testimonial-card p-3">
-                 <div class="d-flex align-items-center">
-                     <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-picture">
-                     <div>
-                         <h5>Amina Ebele <a href="#">@DeliciousAmina</a></h5>
-                     </div>
-                 </div>
-                 <p>I am now the unofficial <a href="#">@Pythagorax</a> ambassador. What these guys just pulled to ensure I got my menu cards today is stunning!</p>
-             </div>
-         </div>
-         <!-- Testimonial 2 -->
-         <div class="col-md-4">
-             <div class="testimonial-card p-3">
-                 <div class="d-flex align-items-center">
-                     <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-picture">
-                     <div>
-                         <h5>Oluwatosin <a href="#">@tosingirlfx</a></h5>
-                     </div>
-                 </div>
-                 <p><a href="#">@Pythagorax</a> delivered my mugs in 24hrs. Thank you so much! It's nice doing business with you. More to come.</p>
-             </div>
-         </div>
-         <!-- Testimonial 3 -->
-         <div class="col-md-4">
-             <div class="testimonial-card p-3">
-                 <div class="d-flex align-items-center">
-                     <img src="https://via.placeholder.com/50" alt="Profile Picture" class="profile-picture">
-                     <div>
-                         <h5>Oluwatosin <a href="#">@olgablark</a></h5>
-                     </div>
-                 </div>
-                 <p>These guys <a href="#">@Pythagorax</a> are really awesome and affordable. Excellent customer service and delivery too. Thank you.</p>
-             </div>
-         </div>
-     </div>
- </div>
-</div>
-
-<!-- Why Choose Us -->
-<section class="why-choose-us">
-<div class="container">
- <h2 class="section-title text-center mb-5">Why Choose Pythagorax</h2>
- <div class="row g-4">
-   <div class="col-md-4">
-     <div class="feature-box text-center">
-       <i class="fas fa-truck-fast feature-icon"></i>
-       <h4>Fast Delivery</h4>
-       <p>Get your prints delivered to your doorstep in record time</p>
-     </div>
-   </div>
-   <div class="col-md-4">
-     <div class="feature-box text-center">
-       <i class="fas fa-star feature-icon"></i>
-       <h4>Quality Guaranteed</h4>
-       <p>We ensure the highest quality prints for your business</p>
-     </div>
-   </div>
-   <div class="col-md-4">
-     <div class="feature-box text-center">
-       <i class="fas fa-headset feature-icon"></i>
-       <h4>24/7 Support</h4>
-       <p>Our customer support team is always ready to help</p>
-     </div>
-   </div>
- </div>
-</div>
-</section>
-
-</main>
-
-{% endblock content %}
-
-{% block javascripts %}
-    
-{% endblock javascripts %}
+</body>
+</html>
